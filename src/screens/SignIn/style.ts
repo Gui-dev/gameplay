@@ -5,7 +5,6 @@ export const Container = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.secondary90};
 `
 
 export const Image = styled.Image`

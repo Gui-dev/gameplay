@@ -2,6 +2,7 @@ import React from 'react'
 
 import illustrationImg from './../../assets/images/illustration.png'
 import { ButtonIcon } from '../../components/ButtonIcon'
+
 import { Container, Image, Content, Title, Subtitle } from './style'
 
 export const SignIn = () => {
