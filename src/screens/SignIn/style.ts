@@ -21,14 +21,18 @@ export const Content = styled.View`
 
 export const Title = styled.Text`
   font-size: 35px;
+  font-family: ${fonts.title700};
   text-align: center;
+  line-height: 40px;
   color: ${colors.heading};
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 `
 
 export const Subtitle = styled.Text`
   font-size: 15px;
+  font-family: ${fonts.title500};
   text-align: center;
+  line-height: 25px;
   color: ${colors.heading};
   margin-bottom: 16px;
 `

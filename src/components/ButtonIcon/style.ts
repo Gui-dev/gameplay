@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 import { TouchableOpacityProps } from 'react-native'
 
-import { colors } from '../../assets/styles/global'
+import { colors, fonts } from '../../assets/styles/global'
 
 type ContainerProps = TouchableOpacityProps
 
@@ -33,6 +33,7 @@ export const Image = styled.Image`
 export const ButtonText = styled.Text`
   flex: 1;
   font-size: 15px;
+  font-family: ${fonts.title700};
   text-align: center;
   color: ${colors.heading};
 `
