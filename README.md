@@ -1,11 +1,11 @@
-<!-- <h1 align="center">
+<h1 align="center">
    <img
-        alt="PlantManager"
-        title="PlantManager"
+        alt="Gameplay"
+        title="Gameplay"
         src="./assets/adaptive-icon.png"
         width="300"
     />
-</h1> -->
+</h1>
 
 # Gameplay
 
