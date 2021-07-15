@@ -1,13 +1,11 @@
 import styled from 'styled-components/native'
-import { TouchableOpacityProps } from 'react-native'
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler'
 
 import { colors, fonts } from '../../assets/styles/global'
 
-type ContainerProps = TouchableOpacityProps
+type ContainerProps = RectButtonProps
 
-export const Container = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.9
-})<ContainerProps>`
+export const Container = styled(RectButton)<ContainerProps>`
   align-items: center;
   flex-direction: row;
   height: 56px;
