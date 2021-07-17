@@ -1,7 +1,7 @@
 import RankedSvg from './../assets/images/ranked.svg'
 import DuelSvg from './../assets/images/duel.svg'
 import FunSvg from './../assets/images/fun.svg'
-import TrainingSvg from './../assets/images/trainig.svg'
+import TrainingSvg from './../assets/images/training.svg'
 
 export const categories = [
   {
