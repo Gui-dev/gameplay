@@ -14,6 +14,17 @@ export const Header = styled.View`
   padding: 0 24px;
 `
 
-export const Content = styled.View`
+export const Matches = styled.View`
+  margin-top: 24px;
+`
 
+export const ListMatch = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+  contentContainerStyle: {
+    paddingLeft: 16,
+    paddingRight: 24,
+    paddingBottom: 20
+  }
+})`
+  margin-top: 24px;
 `
