@@ -3,16 +3,17 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import { SignIn } from '../screens/SignIn'
 import { Home } from '../screens/Home'
+import { colors } from '../assets/styles/global'
 
 export const AuthRoutes = () => {
   const { Navigator, Screen } = createStackNavigator()
   return (
     <Navigator
-      // initialRouteName="Home"
+      initialRouteName="Home"
       headerMode="none"
       screenOptions={{
         cardStyle: {
-          backgroundColor: 'transparent'
+          backgroundColor: colors.secondary100
         }
       }}
     >
