@@ -7,10 +7,11 @@ import { Container } from './style'
 
 type CategorySelect = {
   categorySelected: string
+  hasCheckBox?: boolean
   setCategory: (categoryId: string) => void
 }
 
-export const CategorySelect = ({ categorySelected, setCategory }: CategorySelect) => {
+export const CategorySelect = ({ categorySelected, hasCheckBox = false, setCategory }: CategorySelect) => {
   return (
     <Container>
       { categories.map(category => {
@@ -20,6 +21,7 @@ export const CategorySelect = ({ categorySelected, setCategory }: CategorySelect
             title={ category.title }
             icon={ category.icon }
             checked={ category.id === categorySelected }
+            hasCheckBox={ hasCheckBox }
             onPress={ () => setCategory(category.id) }
           />
         )
