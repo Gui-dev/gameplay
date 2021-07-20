@@ -26,22 +26,22 @@ export const Content = styled(LinearGradient)`
   border-radius: 8px;
 `
 
-export const ViewContent = styled.View<CheckedProps>`
+export const ViewContent = styled(LinearGradient)<CheckedProps>`
   align-items: center;
   justify-content: space-between;
   height: 116px;
   width: 100px;
-  padding: 7px 0;
-  background-color: ${colors.secondary40};
+  padding: 20px 0;
   border-radius: 8px;
-  opacity: ${({ check }) => check ? '1' : '0.4'};
+  opacity: ${({ check }) => check ? '1' : '0.5'};
 `
 
 export const Check = styled.View<CheckedProps>`
-  align-self: flex-end;
+  position: absolute;
+  top: 7px;
+  right: 7px;
   height: ${({ check }) => check ? '10px' : '12px'};
   width: ${({ check }) => check ? '10px' : '12px'};
-  margin-right: 7px;
   background-color: ${({ check }) => check ? colors.primary : colors.secondary100};
   border-width: ${({ check }) => check ? '0' : '2px'};
   border-color: ${colors.secondary50};
@@ -50,6 +50,6 @@ export const Check = styled.View<CheckedProps>`
 
 export const Title = styled.Text`
   font-size: 16px;
-  font-family: ${fonts.title500};
+  font-family: ${fonts.title700};
   color: ${colors.heading};
 `
