@@ -52,4 +52,5 @@ export const Title = styled.Text`
   font-size: 16px;
   font-family: ${fonts.title700};
   color: ${colors.heading};
+  margin-top: 15px;
 `
