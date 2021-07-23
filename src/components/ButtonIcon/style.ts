@@ -31,7 +31,7 @@ export const Image = styled.Image`
 export const ButtonText = styled.Text`
   flex: 1;
   font-size: 15px;
-  font-family: ${fonts.title700};
+  font-family: ${fonts.text500};
   text-align: center;
   color: ${colors.heading};
 `
