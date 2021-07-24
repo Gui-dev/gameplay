@@ -24,7 +24,8 @@ export const Guilds = ( { handleGuildSelected }: GuildsProps ) => {
             />
           )
         }}
-        ItemSeparatorComponent={ () => <ListDivider /> }
+        ListHeaderComponent={ () => <ListDivider isCentered /> }
+        ItemSeparatorComponent={ () => <ListDivider isCentered /> }
       />
     </Container>
   )
