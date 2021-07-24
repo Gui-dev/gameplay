@@ -6,6 +6,11 @@ export const Container = styled.View`
   padding-top: 24px;
 `
 
-export const GuildList = styled.FlatList`
+export const GuildList = styled.FlatList.attrs({
+  contentContainerStyle: {
+    paddingTop: 103,
+    paddingBottom: 60
+  }
+})`
   width: 100%;
 `

@@ -23,7 +23,7 @@ export const ListMatch = styled.FlatList.attrs({
   contentContainerStyle: {
     paddingLeft: 16,
     paddingRight: 24,
-    paddingBottom: 20
+    paddingBottom: 69
   }
 })`
   margin-top: 24px;

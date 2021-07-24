@@ -20,7 +20,6 @@ export const Bar = styled.View`
   height: 2px;
   width: 39px;
   margin-top: 13px;
-  margin-bottom: 103px;
   background-color: ${colors.secondary40};
   border-radius: 2px;
 `

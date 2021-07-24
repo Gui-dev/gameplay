@@ -39,7 +39,7 @@ export const Subtitle = styled.Text`
 
 export const MembersList = styled.FlatList.attrs({
   contentContainerStyle: {
-    paddingBottom: 30,
+    paddingBottom: 60,
     paddingHorizontal: 24
   }
 })`
