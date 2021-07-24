@@ -26,13 +26,13 @@ export const Title = styled.Text`
   font-size: 18px;
   font-family: ${fonts.title700};
   color: ${colors.heading};
-  margin-bottom: 11px;
+  margin-bottom: 4px;
 `
 
 export const GuildOwner = styled.Text`
   font-size: 13px;
   font-family: ${fonts.text400};
   color: ${colors.highlight};
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 `
 
