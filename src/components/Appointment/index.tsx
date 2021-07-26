@@ -7,7 +7,7 @@ import { IAppointmentProps } from './IAppointment'
 import { GuildIcon } from '../GuildIcon'
 import { categories } from '../../utils/categories'
 
-import { Container, Content, GuildInfo, GuildHeader, GuildFooter, DateInfo, Date, GuildTitle,
+import { Container, Content, GuildBackground,  GuildInfo, GuildHeader, GuildFooter, DateInfo, Date, GuildTitle,
   Category, PlayerInfo, PlayerText
 } from './style'
 import { colors } from '../../assets/styles/global'
@@ -24,7 +24,11 @@ export const Appointment = ({ data, ...rest }: AppointmentProps) => {
   return (
     <Container {...rest}>
       <Content>
-        <GuildIcon />
+        <GuildBackground
+          colors={[colors.secondary50, colors.secondary70]}
+        >
+          <GuildIcon />
+        </GuildBackground>
 
         <GuildInfo>
           <GuildHeader>

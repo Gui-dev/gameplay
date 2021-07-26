@@ -1,5 +1,7 @@
 import styled from 'styled-components/native'
 import { RectButton } from 'react-native-gesture-handler'
+import { LinearGradient } from 'expo-linear-gradient'
+
 import { colors, fonts } from '../../assets/styles/global'
 
 type PlayersTextProps = {
@@ -14,6 +16,15 @@ export const Content = styled.View`
   flex-direction: row;
   align-self: center;
   width: 100%;
+`
+
+export const GuildBackground = styled(LinearGradient)`
+  align-items: center;
+  justify-content: center;
+  height: 67px;
+  width: 63px;
+  margin-right: 20px;
+  border-radius: 8px;
 `
 
 export const GuildInfo = styled.View`
