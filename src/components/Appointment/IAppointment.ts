@@ -1,13 +1,8 @@
-export type IGuildProps = {
-  id: string
-  name: string
-  icon: string | null
-  owner: boolean
-}
+import { GuildProps } from './../Guild'
 
 export type IAppointmentProps = {
   id: string
-  guild: IGuildProps
+  guild: GuildProps
   category: string
   description: string
   date: string
