@@ -10,5 +10,7 @@ export const Container = styled.TextInput`
   height: 95px;
   width: 100%;
   background-color: ${colors.secondary40};
+  border-width: 1px;
+  border-color: ${colors.secondary50};
   border-radius: 8px;
 `
