@@ -16,6 +16,7 @@ export const Content = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-left: 20px;
 `
 
 export const GuildInfo = styled.View`
@@ -26,13 +27,11 @@ export const Title = styled.Text`
   font-size: 18px;
   font-family: ${fonts.title700};
   color: ${colors.heading};
-  margin-bottom: 4px;
 `
 
 export const GuildOwner = styled.Text`
   font-size: 13px;
   font-family: ${fonts.text400};
   color: ${colors.highlight};
-  margin-bottom: 12px;
 `
 
