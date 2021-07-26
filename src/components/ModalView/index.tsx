@@ -14,8 +14,9 @@ export const ModalView = ({ children, closeModal, ...rest }: ModalViewProps) => 
     // @ts-ignore
     <Container
       { ...rest }
-      transparent
       animationType="slide"
+      transparent
+      statusBarTranslucent
     >
       <TouchableWithoutFeedback onPress={ closeModal }>
         <Overlay>
