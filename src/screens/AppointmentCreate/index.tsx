@@ -32,10 +32,13 @@ export const AppointmentCreate = () => {
     setOpenGuildModal(false)
   }
 
+  const handleCategorySelect = (categoryId: string) => {
+    categoryId === category ? setCategory('') : setCategory(categoryId)
+  }
+
   const handleGuildSelected = (guild: GuildProps) => {
     setGuild(guild)
     setOpenGuildModal(false)
-    console.log(guild)
   }
 
   return (
@@ -53,7 +56,7 @@ export const AppointmentCreate = () => {
 
           <CategorySelect
             categorySelected={ category }
-            setCategory={ setCategory }
+            setCategory={ handleCategorySelect }
             hasCheckBox
           />
 
