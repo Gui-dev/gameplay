@@ -33,7 +33,7 @@ export const AppointmentCreate = () => {
   }
 
   const handleCategorySelect = (categoryId: string) => {
-    categoryId === category ? setCategory('') : setCategory(categoryId)
+    setCategory(categoryId)
   }
 
   const handleGuildSelected = (guild: GuildProps) => {
