@@ -34,6 +34,7 @@ export const Title = styled.Text`
 export const Subtitle = styled.Text`
   font-size: 13px;
   font-family: ${fonts.text400};
+  line-height: 21px;
   color: ${colors.heading};
 `
 
