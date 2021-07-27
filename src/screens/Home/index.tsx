@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 import { Profile } from '../../components/Profile'
 import { ButtonAdd } from '../../components/ButtonAdd'
@@ -12,10 +13,19 @@ import { Background } from './../../components/Background'
 import { Container, Header, ListMatch } from './style'
 
 export const Home = () => {
+  const { navigate } = useNavigation()
   const [category, setCategory] = useState('')
 
   const handleCategorySelect = (categoryId: string) => {
     categoryId === category ? setCategory('') : setCategory(categoryId)
+  }
+
+  const handleNavigationToAppointmentCreate = () => {
+    navigate('AppointmentCreate')
+  }
+
+  const handleNavigationAppointmentDetails = () => {
+    navigate('AppointmentDetails')
   }
 
   return (
@@ -23,7 +33,7 @@ export const Home = () => {
       <Container>
         <Header>
           <Profile />
-          <ButtonAdd />
+          <ButtonAdd onPress={ handleNavigationToAppointmentCreate }/>
         </Header>
 
         <CategorySelect
@@ -44,6 +54,7 @@ export const Home = () => {
             return (
               <Appointment
                 data={ item }
+                onPress={ handleNavigationAppointmentDetails }
               />
             )
           } }
