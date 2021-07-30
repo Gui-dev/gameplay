@@ -56,7 +56,7 @@ export const AppointmentDetails = () => {
               <Member data={ item }/>
             )
           }}
-          ItemSeparatorComponent={ () => <ListDivider /> }
+          ItemSeparatorComponent={ () => <ListDivider isCentered/> }
         />
 
         <ButtonContainer>
