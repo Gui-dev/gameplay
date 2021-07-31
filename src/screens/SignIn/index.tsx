@@ -1,6 +1,5 @@
 import React from 'react'
-import { ActivityIndicator } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { ActivityIndicator, Alert } from 'react-native'
 
 import { useAuth } from '../../hooks/useAuth'
 
@@ -12,14 +11,13 @@ import { Background } from './../../components/Background'
 import { Container, Image, Content, Title, Subtitle } from './style'
 
 export const SignIn = () => {
-  const { navigate } = useNavigation()
   const { loading, signIn } = useAuth()
 
   const handleSignIn = async () => {
     try {
       await signIn()
     } catch (error) {
-      console.log(error)
+      Alert.alert('Ooooops', 'Alguma coida deu errado. Tente novamente')
     }
   }
 
