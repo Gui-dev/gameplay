@@ -1,7 +1,9 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import * as AuthSession from 'expo-auth-session'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { discordConfig } from './../config/discordAuth'
+import { COLLECTION_USER } from './../config/storage'
 import { api } from '../services/api'
 
 type User = {
@@ -36,6 +38,24 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User>({} as User)
   const [loading, setLoading] = useState(false)
 
+  useEffect(() => {
+    const loadStorageData = async () => {
+      setLoading(true)
+      const storage = await AsyncStorage.getItem(COLLECTION_USER)
+
+      if (storage) {
+        const user = JSON.parse(storage)
+        setUser(user)
+        api.defaults.headers.authorization = `Bearer ${user.access_token}`
+        setLoading(false)
+      }
+
+      setLoading(false)
+    }
+
+    loadStorageData()
+  }, [])
+
   const signIn = async () => {
     try {
       setLoading(true)
@@ -53,11 +73,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         const firstName = userInfo.data.username.split(' ')[0]
         userInfo.data.avatar = `${CDN_IMAGE}/avatars/${userInfo.data.id}/${userInfo.data.avatar}.png`
 
-        setUser({
+        const userData = {
           ...userInfo.data,
           firstName,
           token: params.access_token
-        })
+        }
+
+        await AsyncStorage.setItem(COLLECTION_USER, JSON.stringify(userData))
+
+        setUser(userData)
       }
     } catch {
       throw new Error('Não foi possível autenticar')
