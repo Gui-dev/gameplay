@@ -32,6 +32,9 @@ App to help you connect and organize fun time and play with friends
   - [Expo](https://docs.expo.io)
   - [Typescript](https://www.typescriptlang.org)
   - [Styled Components](https://www.styled-components.com)
+  - [Lottie](https://lottiefiles.com/)
+  - [OAuth2](https://oauth.net/2/)
+  - [Social login with Discord](https://discord.com/developers)
 
 ## Requirements
 
