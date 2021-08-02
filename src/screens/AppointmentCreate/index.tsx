@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import { KeyboardAvoidingView, Platform } from 'react-native'
+import { Alert, KeyboardAvoidingView, Platform } from 'react-native'
 import { Feather } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/core'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import uuid from 'react-native-uuid'
 
 import { Header } from '../../components/Header'
 import { CategorySelect } from '../../components/CategorySelect'
@@ -11,6 +14,8 @@ import { Button } from '../../components/Button'
 import { Guilds } from '../Guilds'
 import { ModalView } from '../../components/ModalView'
 
+import { COLLECTION_APPOINTMENTS } from '../../config/storage'
+
 import { GuildProps } from '../../components/Guild'
 
 import { colors } from '../../assets/styles/global'
@@ -20,9 +25,16 @@ import { Container, Label, Form, ButtonSelect, Select, Image, SelectBody, Select
 } from './style'
 
 export const AppointmentCreate = () => {
+  const { navigate } = useNavigation()
   const [category, setCategory] = useState('')
   const [openGuildModal, setOpenGuildModal] = useState(false)
   const [guild, setGuild] = useState<GuildProps>({} as GuildProps)
+
+  const [day, setDay] = useState('')
+  const [month, setMonth] = useState('')
+  const [hour, setHour] = useState('')
+  const [minute, setMinute] = useState('')
+  const [description, setDescription] = useState('')
 
   const handleOpenGuildModal = () => {
     setOpenGuildModal(true)
@@ -39,6 +51,29 @@ export const AppointmentCreate = () => {
   const handleGuildSelected = (guild: GuildProps) => {
     setGuild(guild)
     setOpenGuildModal(false)
+  }
+
+  const handleSubmit = async () => {
+    try {
+      const newAppointment = {
+        id: uuid.v4(),
+        guild,
+        category,
+        date: `${day}/${month} às ${hour}:${minute}`,
+        description
+      }
+
+      const storage = await AsyncStorage.getItem(COLLECTION_APPOINTMENTS)
+      const appointments = storage ? JSON.parse(storage) : []
+      await AsyncStorage.setItem(
+        COLLECTION_APPOINTMENTS,
+        JSON.stringify([...appointments, newAppointment])
+      )
+
+      navigate('Home')
+    } catch (error) {
+      Alert.alert('Oooooops', 'Verifique se todos os campos estão preenchidos!')
+    }
   }
 
   return (
@@ -92,9 +127,17 @@ export const AppointmentCreate = () => {
                 <InputLabel>Dia e mês</InputLabel>
 
                 <InputGroup>
-                  <SmallInput maxLength={ 2 }/>
+                  <SmallInput
+                    maxLength={ 2 }
+                    value={ day }
+                    onChangeText={ setDay }
+                  />
                   <Divider>/</Divider>
-                  <SmallInput maxLength={ 2 }/>
+                  <SmallInput
+                    maxLength={ 2 }
+                    value={ month }
+                    onChangeText={ setMonth }
+                  />
                 </InputGroup>
               </InputInfo>
 
@@ -102,9 +145,17 @@ export const AppointmentCreate = () => {
                 <InputLabel>Hora e minuto</InputLabel>
 
                 <InputGroup>
-                  <SmallInput maxLength={ 2 }/>
+                  <SmallInput
+                    maxLength={ 2 }
+                    value={ hour }
+                    onChangeText={ setHour }
+                  />
                   <Divider>:</Divider>
-                  <SmallInput maxLength={ 2 }/>
+                  <SmallInput
+                    maxLength={ 2 }
+                    value={ minute }
+                    onChangeText={ setMinute }
+                  />
                 </InputGroup>
               </InputInfo>
 
@@ -123,12 +174,17 @@ export const AppointmentCreate = () => {
                   numberOfLines={ 5 }
                   autoCorrect={ false }
                   multiline
+                  value={ description }
+                  onChangeText={ setDescription }
                 />
               </InputGroup>
             </InputInfo>
 
             <ButtonContainer>
-              <Button title="Agendar"/>
+              <Button
+                title="Agendar"
+                onPress={ handleSubmit }
+              />
             </ButtonContainer>
 
           </Form>
