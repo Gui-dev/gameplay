@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       if (storage) {
         const user = JSON.parse(storage)
         setUser(user)
-        api.defaults.headers.authorization = `Bearer ${user.access_token}`
+        api.defaults.headers.authorization = `Bearer ${user.token}`
         setLoading(false)
       }
 
