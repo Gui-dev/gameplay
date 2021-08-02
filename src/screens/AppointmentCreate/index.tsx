@@ -65,7 +65,10 @@ export const AppointmentCreate = () => {
               <Select>
                 {
                   guild.icon
-                    ? <GuildIcon />
+                    ? <GuildIcon
+                        guildId={ guild.id }
+                        iconId={ guild.icon }
+                      />
                     : <Image />
                 }
 

@@ -1,14 +1,28 @@
 import React from 'react'
-import { View } from 'react-native'
 
+import { discordConfig } from './../../config/discordAuth'
+
+import DiscordSvg from './../../assets/images/discord.svg'
 import { Container } from './style'
 
-export const GuildIcon = () => {
-  const icon = 'https://i0.wp.com/freeiconspng.com/uploads/flat-discord-material-like-icon--2.png'
+type GuildIconProps = {
+  guildId: string
+  iconId: string
+}
+
+export const GuildIcon = ({ guildId, iconId }: GuildIconProps) => {
+  const uri = `${discordConfig.CDN_IMAGE}/icons/${guildId}/${iconId}.png`
+
   return (
-    <Container
-      source={{ uri: icon }}
-      resizeMode="cover"
-    />
+    <>
+      {
+        iconId
+        ?  <Container
+              source={{ uri }}
+              resizeMode="cover"
+            />
+        : <DiscordSvg height={ 40 } width={ 40 }/>
+      }
+    </>
   )
 }

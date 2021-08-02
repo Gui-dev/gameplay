@@ -22,7 +22,10 @@ export const Guild = ({ data, ...rest }: Props) => {
   return (
     // @ts-ignore
     <Container { ...rest }>
-      <GuildIcon />
+      <GuildIcon
+        guildId={ data.id }
+        iconId={ data.icon }
+      />
 
       <Content>
         <GuildInfo>
