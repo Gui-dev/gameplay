@@ -6,7 +6,6 @@ import { Profile } from '../../components/Profile'
 import { ButtonAdd } from '../../components/ButtonAdd'
 import { CategorySelect } from '../../components/CategorySelect'
 import { ListHeader } from '../../components/ListHeader'
-import { appointments } from '../../utils/appointments'
 import { Appointment } from '../../components/Appointment'
 import { ListDivider } from '../../components/ListDivider'
 
