@@ -27,7 +27,10 @@ export const Appointment = ({ data, ...rest }: AppointmentProps) => {
         <GuildBackground
           colors={[colors.secondary50, colors.secondary70]}
         >
-          <GuildIcon />
+          <GuildIcon
+            guildId={ data.guild.id }
+            iconId={ data.guild.icon }
+          />
         </GuildBackground>
 
         <GuildInfo>
