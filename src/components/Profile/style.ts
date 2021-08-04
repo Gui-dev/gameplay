@@ -1,9 +1,15 @@
 import styled from 'styled-components/native'
+import { RectButton } from 'react-native-gesture-handler'
+
 import { colors, fonts } from '../../assets/styles/global'
 
 export const Container = styled.View`
   align-items: center;
   flex-direction: row;
+`
+
+export const ButtonAvatar = styled(RectButton)`
+
 `
 
 export const UserInfo = styled.View`

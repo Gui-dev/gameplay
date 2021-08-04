@@ -1,16 +1,35 @@
 import React from 'react'
+import { Alert } from 'react-native'
 
 import { useAuth } from '../../hooks/useAuth'
 
 import { Avatar } from '../Avatar'
-import { Container, UserInfo, User, Greeting, Username, Message } from './style'
+import { Container, ButtonAvatar, UserInfo, User, Greeting, Username, Message } from './style'
+
 
 export const Profile = () => {
-  const { user } = useAuth()
+  const { user, signOut } = useAuth()
+
+  const handleSignOut = () => {
+    Alert.alert('Logout', 'Deseja sair do gameplay',[
+      {
+        text: 'Não',
+        style: 'cancel'
+      },
+      {
+        text: 'Sim',
+        onPress: () => signOut()
+      }
+    ])
+  }
 
   return (
     <Container>
-      <Avatar urlImage={ user.avatar }/>
+      <ButtonAvatar
+        onPress={ handleSignOut }
+      >
+        <Avatar urlImage={ user.avatar }/>
+      </ButtonAvatar>
       <UserInfo>
         <User>
           <Greeting>Olá,</Greeting>

@@ -3,7 +3,7 @@ import * as AuthSession from 'expo-auth-session'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { discordConfig } from './../config/discordAuth'
-import { COLLECTION_USER } from './../config/storage'
+import { COLLECTION_USER, COLLECTION_APPOINTMENTS } from './../config/storage'
 import { api } from '../services/api'
 
 type User = {
@@ -19,6 +19,7 @@ type AuthContextProps = {
   user: User
   loading: boolean
   signIn: () => Promise<void>
+  signOut: () => Promise<void>
 }
 
 type AuthProviderProps = {
@@ -37,6 +38,7 @@ export const AuthContext = createContext({} as AuthContextProps)
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User>({} as User)
   const [loading, setLoading] = useState(false)
+
 
   useEffect(() => {
     const loadStorageData = async () => {
@@ -65,8 +67,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
       const { type, params } = await AuthSession.startAsync({ authUrl }) as AuthorizationResponse
 
-      console.log(REDIRECT_URI, CLIENT_ID, RESPONSE_TYPE, SCOPE, CDN_IMAGE)
-
       if (type === 'success' && !params.error) {
         api.defaults.headers.authorization = `Bearer ${params.access_token}`
         const userInfo = await api.get('/users/@me')
@@ -90,11 +90,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   }
 
+  const signOut = async () => {
+    await AsyncStorage.removeItem(COLLECTION_USER)
+    setUser({} as User)
+  }
+
   return (
     <AuthContext.Provider value={{
       user,
       loading,
-      signIn
+      signIn,
+      signOut
     }}>
       { children }
     </AuthContext.Provider>
