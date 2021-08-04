@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -30,8 +30,8 @@ export const Home = () => {
     navigate('AppointmentCreate')
   }
 
-  const handleNavigationAppointmentDetails = () => {
-    navigate('AppointmentDetails')
+  const handleNavigationAppointmentDetails = (guildSelected: IAppointmentProps) => {
+    navigate('AppointmentDetails', { guildSelected })
   }
 
   useFocusEffect(useCallback(() => {
@@ -81,7 +81,7 @@ export const Home = () => {
                       return (
                         <Appointment
                           data={ item }
-                          onPress={ handleNavigationAppointmentDetails }
+                          onPress={ () => handleNavigationAppointmentDetails(item) }
                         />
                       )
                     } }
