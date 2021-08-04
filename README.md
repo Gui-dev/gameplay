@@ -13,19 +13,23 @@ App to help you connect and organize fun time and play with friends
 
 # Screens
 
-<!-- <p align="left">
-<img src="./screens/home.jpg" width="16%" height="300" />
-&nbsp; &nbsp; &nbsp; &nbsp;
-<img src="./screens/name_user.jpg" width="16%" height="300" />
-&nbsp; &nbsp; &nbsp; &nbsp;
-<img src="./screens/confirmation.png" width="16%" height="300" />
-&nbsp; &nbsp; &nbsp; &nbsp;
-<img src="./screens/home_plant.png" width="16%" height="300" />
-&nbsp; &nbsp; &nbsp; &nbsp;
-<img src="./screens/plant_list.png" width="16%" height="300" />
-&nbsp; &nbsp; &nbsp; &nbsp;
-<img src="./screens/plant_delete.png" width="16%" height="300" />
-</p> -->
+<p align="left">
+<img src="./screens/login.png" width="19%" />
+&nbsp; &nbsp;
+<img src="./screens/home_load.png" width="19%" />
+&nbsp; &nbsp;
+<img src="./screens/home.png" width="19%" />
+&nbsp; &nbsp;
+<img src="./screens/register_guild.png" width="19%" />
+&nbsp; &nbsp;
+<img src="./screens/guilds.png" width="19%" />
+&nbsp; &nbsp;
+<img src="./screens/details_owner.png" width="19%" />
+&nbsp; &nbsp;
+<img src="./screens/details.png" width="19%" />
+&nbsp; &nbsp;
+<img src="./screens/share.png" width="19%" />
+</p>
 
 ## Technologies used
   - [React Native](https://reactnative.dev)
