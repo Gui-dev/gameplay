@@ -67,6 +67,10 @@ export const AppointmentDetails = () => {
     })
   }
 
+  const handleOpenGuild = () => {
+    Linking.openURL(widget.instant_invite)
+  }
+
   return (
     <Background>
       <Container>
@@ -112,11 +116,17 @@ export const AppointmentDetails = () => {
              </>
         }
 
-        <ButtonContainer>
-          <ButtonIcon
-            title="Entrar na partida"
-          />
-        </ButtonContainer>
+        {
+          guildSelected.guild.owner && (
+            <ButtonContainer>
+              <ButtonIcon
+                title="Entrar na partida"
+                onPress={ handleOpenGuild }
+              />
+            </ButtonContainer>
+          )
+        }
+
 
       </Container>
     </Background>
